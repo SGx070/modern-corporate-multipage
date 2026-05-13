@@ -15,9 +15,10 @@ body {
     line-height: 1.6;
     background-color: var(--bg-dark);
     color: var(--text-main);
+    overflow-x: hidden; /* Prevents side-scrolling */
 }
 
-/* Navigation - Translucent Blur Effect */
+/* Navigation */
 nav {
     background: rgba(15, 23, 42, 0.9);
     backdrop-filter: blur(10px);
@@ -39,19 +40,17 @@ nav .logo {
 }
 
 nav ul { display: flex; list-style: none; gap: 20px; }
-
 nav ul li a {
     color: var(--text-dim);
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
 }
-
 nav ul li a:hover { color: var(--primary); }
 
 /* Hero Section */
 .hero {
-    height: 70vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,9 +59,9 @@ nav ul li a:hover { color: var(--primary); }
     background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
     padding: 20px;
 }
-
 .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; color: #fff; }
 
+/* Buttons */
 .btn {
     background: var(--primary);
     color: #0f172a;
@@ -73,32 +72,89 @@ nav ul li a:hover { color: var(--primary); }
     transition: 0.3s;
     border: none;
     cursor: pointer;
+    display: inline-block;
 }
-
 .btn:hover { 
     background: var(--accent); 
     box-shadow: 0 0 20px rgba(0, 173, 181, 0.4);
 }
 
+/* Layout Containers - The FIX for image_2caa59.png */
+section {
+    padding: 80px 5%;
+    text-align: center;
+}
 
+.services-container, .portfolio-grid, .reviews-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
 
-.card-content h3, .service-box h3 { color: var(--primary); }
-.card-content p, .review-card p { color: var(--text-dim); }
+/* Card Styling */
+.service-box, .portfolio-card, .review-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    width: 350px; /* Fixed width prevents the stretching in image_2caa59.png */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
 
-/* FAQ Accordion Dark Mode */
-.faq-question { color: var(--text-main); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-.faq-answer { background-color: rgba(255, 255, 255, 0.02); }
+.portfolio-card { padding: 0; overflow: hidden; } /* Portfolio needs specific padding 0 for images */
+
+.service-box:hover, .portfolio-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.card-content { padding: 20px; text-align: left; }
+.card-content h3, .service-box h3 { color: var(--primary); margin-bottom: 10px; }
+.card-content p, .review-card p, .service-box p { color: var(--text-dim); }
+
+/* FAQ Styles */
+.faq-container { max-width: 800px; margin: 40px auto; }
+.faq-question {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary) !important;
+    padding: 20px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-out;
+    background: rgba(255, 255, 255, 0.02);
+}
+.faq-item.active .faq-answer { max-height: 200px; padding: 10px 20px; }
 
 /* Forms */
 input, textarea {
+    width: 100%;
+    padding: 15px;
     background: #1e293b;
     border: 1px solid #334155;
     color: white;
-}
-
-input:focus, textarea:focus {
-    border-color: var(--primary);
-    outline: none;
+    margin-bottom: 15px;
+    border-radius: 8px;
 }
 
 /* Footer */
@@ -107,66 +163,4 @@ footer {
     padding: 3rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-dim);
-}
-
-/* Specific fix for FAQ Visibility */
-.faq-question {
-    background: rgba(255, 255, 255, 0.05); /* Very subtle dark background */
-    color: var(--primary) !important;      /* Forces text to be Cyber Teal */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 5px;
-    border-radius: 8px;
-}
-
-.faq-question:hover {
-    background: rgba(0, 173, 181, 0.1); /* Subtle teal glow on hover */
-}
-
-/* Ensure these names match the HTML exactly */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 40px 0;
-}
-
-.portfolio-card {
-    background: var(--bg-card); /* Make sure this variable is in your :root */
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.card-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-}
-
-.card-content {
-    padding: 20px;
-}
-
-/* This centers the entire content block on the screen */
-.services-container, .portfolio-grid {
-    display: flex;
-    justify-content: center; /* Centers items horizontally */
-    align-items: flex-start; /* Keeps them aligned at the top */
-    flex-wrap: wrap;        /* Allows them to move to a new row on mobile */
-    gap: 30px;              /* Space between the cards */
-    max-width: 1200px;      /* Prevents it from getting too wide */
-    margin: 40px auto;      /* Centers the container itself */
-    padding: 0 20px;
-}
-
-/* This ensures each individual box has a set width */
-.service-box, .portfolio-card {
-    flex: 0 1 350px;       /* Don't grow, allow shrink, base width 350px */
-    background: var(--bg-card);
-    padding: 30px;
-    border-radius: 16px;
-    text-align: center;    /* Centers text inside the card */
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
