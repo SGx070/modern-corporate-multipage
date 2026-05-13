@@ -121,3 +121,16 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: var(--text-dim);
 }
+
+/* Specific fix for FAQ Visibility */
+.faq-question {
+    background: rgba(255, 255, 255, 0.05); /* Very subtle dark background */
+    color: var(--primary) !important;      /* Forces text to be Cyber Teal */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+.faq-question:hover {
+    background: rgba(0, 173, 181, 0.1); /* Subtle teal glow on hover */
+}
