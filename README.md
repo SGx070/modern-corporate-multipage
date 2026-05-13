@@ -37,8 +37,4 @@ This repository contains a complete business website flow:
 * **User Navigation:** Intuitive footer and "Explore More" blocks to prevent dead-end pages.
 
 ---
-
-## 🔧 Installation & Local Setup
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/yourusername/nexus-digital.git](https://github.com/yourusername/nexus-digital.git)
+<sub> Built it with ❤️ for my GitHub Portfolio. </sub>
