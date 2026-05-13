@@ -164,3 +164,35 @@ footer {
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    /* Shrink the Hero text so it doesn't wrap awkwardly */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Stack the Navigation links vertically or hide them */
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Ensure cards take up more width on small screens */
+    .service-box, .portfolio-card, .review-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Add more breathing room for sections */
+    section {
+        padding: 40px 20px;
+    }
+}
