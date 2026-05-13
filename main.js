@@ -31,3 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Add to your main.js
+const contactForm = document.getElementById('mainContactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        contactForm.innerHTML = `<h3>Success!</h3><p>Thank you for reaching out. Our team will contact you shortly.</p>`;
+    });
+}
