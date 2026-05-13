@@ -148,3 +148,25 @@ footer {
 .card-content {
     padding: 20px;
 }
+
+/* This centers the entire content block on the screen */
+.services-container, .portfolio-grid {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: flex-start; /* Keeps them aligned at the top */
+    flex-wrap: wrap;        /* Allows them to move to a new row on mobile */
+    gap: 30px;              /* Space between the cards */
+    max-width: 1200px;      /* Prevents it from getting too wide */
+    margin: 40px auto;      /* Centers the container itself */
+    padding: 0 20px;
+}
+
+/* This ensures each individual box has a set width */
+.service-box, .portfolio-card {
+    flex: 0 1 350px;       /* Don't grow, allow shrink, base width 350px */
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;    /* Centers text inside the card */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
